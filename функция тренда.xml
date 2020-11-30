@@ -1,0 +1,256 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
+  <variables>
+    <variable type="" id="%CCnhU=`W`]1yJ;nGh=2">Список ввода</variable>
+    <variable type="" id="?gycWC@;g:+P*Nx:3/A,">Период SMA</variable>
+    <variable type="" id="`W6D^K0Y6vr[@*+Q%7{:">Период угла</variable>
+    <variable type="" id="IS^PHh;6r)zav]#0MyT;">угол</variable>
+    <variable type="" id="KsrKJ1b])}.pGvp+c?!:">тр_в</variable>
+    <variable type="" id="_/hUFcf;?io`JwXDw8hj">тр_н</variable>
+  </variables>
+  <block type="procedures_defreturn" id="0321_Y1-y;MYT(a#Iu1?" collapsed="true" x="0" y="0">
+    <mutation>
+      <arg name="Список ввода" varid="%CCnhU=`W`]1yJ;nGh=2"></arg>
+      <arg name="Период SMA" varid="?gycWC@;g:+P*Nx:3/A,"></arg>
+      <arg name="Период угла" varid="`W6D^K0Y6vr[@*+Q%7{:"></arg>
+    </mutation>
+    <field name="NAME">тренд вверх</field>
+    <comment pinned="false" h="80" w="160">Опишите эту функцию…</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="|:rRn|NPGY-~]|YNA(5I">
+        <field name="VAR" id="IS^PHh;6r)zav]#0MyT;" variabletype="">угол</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="iTF-Dw,Bu8NOhr}nk=Am">
+            <field name="OP">MINUS</field>
+            <value name="A">
+              <shadow type="math_number" id="+#pU4O-k6HP1T;?)k|9-">
+                <field name="NUM">1</field>
+              </shadow>
+              <block type="lists_getIndex" id="M6J,}|q{:}56,Bz-U$EP">
+                <mutation statement="false" at="false"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">LAST</field>
+                <value name="VALUE">
+                  <block type="smaa" id="S:4`Mq;XRYEX3=x#o$Q*">
+                    <value name="INPUT">
+                      <block type="variables_get" id="KIF$=C`IKyZt=EYkSZL`">
+                        <field name="VAR" id="%CCnhU=`W`]1yJ;nGh=2" variabletype="">Список ввода</field>
+                      </block>
+                    </value>
+                    <value name="PERIOD">
+                      <shadow type="math_number" id="jWZR#@qkPGle|Dznwj]r">
+                        <field name="NUM">10</field>
+                      </shadow>
+                      <block type="variables_get" id="E~O_iwD:zEZ+d5!uz.=u">
+                        <field name="VAR" id="?gycWC@;g:+P*Nx:3/A," variabletype="">Период SMA</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id=",o?=CHO|XIqodHuvyAQL">
+                <field name="NUM">1</field>
+              </shadow>
+              <block type="lists_getIndex" id="IW7~CD9_*91`f`!:M(Z.">
+                <mutation statement="false" at="true"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">FROM_END</field>
+                <value name="VALUE">
+                  <block type="smaa" id="k{OGRamKn${=3)2`i^7;">
+                    <value name="INPUT">
+                      <block type="variables_get" id=";KA^8G8Z_,.}`/D!u5#.">
+                        <field name="VAR" id="%CCnhU=`W`]1yJ;nGh=2" variabletype="">Список ввода</field>
+                      </block>
+                    </value>
+                    <value name="PERIOD">
+                      <shadow type="math_number" id="jWZR#@qkPGle|Dznwj]r">
+                        <field name="NUM">10</field>
+                      </shadow>
+                      <block type="variables_get" id="R-Ap9RkF6N-ZP52/BVXH">
+                        <field name="VAR" id="?gycWC@;g:+P*Nx:3/A," variabletype="">Период SMA</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="AT">
+                  <block type="variables_get" id="_,U{Wew-gmb8SLDpBqLe">
+                    <field name="VAR" id="`W6D^K0Y6vr[@*+Q%7{:" variabletype="">Период угла</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="G+fFZ9b84c0;N|gX6}.)">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="|qE-{(X5R!:{r`+{GI*A">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="13GcF-0BJ}9[2%G)0jPe">
+                    <field name="VAR" id="IS^PHh;6r)zav]#0MyT;" variabletype="">угол</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="{5n#h1PqS8ZPPp);#Eh^">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="8|L_X^MDTmgp_FJo/z=_">
+                <field name="VAR" id="KsrKJ1b])}.pGvp+c?!:" variabletype="">тр_в</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="6gxizn$_~nqV$ORjU{W[">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="variables_set" id="1Jz$S2J}g5/V~p]$%1I)">
+                <field name="VAR" id="KsrKJ1b])}.pGvp+c?!:" variabletype="">тр_в</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="s}Uh5xmI4p{?@?ZG#{vZ">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get" id="*7sO{slGFG)ywkJB9T~Q">
+        <field name="VAR" id="KsrKJ1b])}.pGvp+c?!:" variabletype="">тр_в</field>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="@?UC(UrN|y*4l^8P%8Kl" collapsed="true" x="0" y="53">
+    <mutation>
+      <arg name="Список ввода" varid="%CCnhU=`W`]1yJ;nGh=2"></arg>
+      <arg name="Период SMA" varid="?gycWC@;g:+P*Nx:3/A,"></arg>
+      <arg name="Период угла" varid="`W6D^K0Y6vr[@*+Q%7{:"></arg>
+    </mutation>
+    <field name="NAME">тренд вниз</field>
+    <comment pinned="false" h="80" w="160">Опишите эту функцию…</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="!r[}H![S4e7uLi}.98uj">
+        <field name="VAR" id="IS^PHh;6r)zav]#0MyT;" variabletype="">угол</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id=";if|~/o=$?Vaf=PDMrm@">
+            <field name="OP">MINUS</field>
+            <value name="A">
+              <shadow type="math_number" id="+#pU4O-k6HP1T;?)k|9-">
+                <field name="NUM">1</field>
+              </shadow>
+              <block type="lists_getIndex" id="W%@eY@:)4b@+2?1Q;Qju">
+                <mutation statement="false" at="false"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">LAST</field>
+                <value name="VALUE">
+                  <block type="smaa" id="gQ[!d28+!u5zJ[#q?q9D">
+                    <value name="INPUT">
+                      <block type="variables_get" id="5?z[.SSI@yK#;(mepM1a">
+                        <field name="VAR" id="%CCnhU=`W`]1yJ;nGh=2" variabletype="">Список ввода</field>
+                      </block>
+                    </value>
+                    <value name="PERIOD">
+                      <shadow type="math_number" id="jWZR#@qkPGle|Dznwj]r">
+                        <field name="NUM">10</field>
+                      </shadow>
+                      <block type="variables_get" id="UIk/F%EsT^7Z55~mgZI4">
+                        <field name="VAR" id="?gycWC@;g:+P*Nx:3/A," variabletype="">Период SMA</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id=",o?=CHO|XIqodHuvyAQL">
+                <field name="NUM">1</field>
+              </shadow>
+              <block type="lists_getIndex" id="w~VGz*.x|*v`nH~mg2b^">
+                <mutation statement="false" at="true"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">FROM_END</field>
+                <value name="VALUE">
+                  <block type="smaa" id="Us*+uxj*+?M3T,R0R*,t">
+                    <value name="INPUT">
+                      <block type="variables_get" id="R_dOb+4J,WwLw0#)}.@T">
+                        <field name="VAR" id="%CCnhU=`W`]1yJ;nGh=2" variabletype="">Список ввода</field>
+                      </block>
+                    </value>
+                    <value name="PERIOD">
+                      <shadow type="math_number" id="jWZR#@qkPGle|Dznwj]r">
+                        <field name="NUM">10</field>
+                      </shadow>
+                      <block type="variables_get" id="ty-)3n.fw3qGJw+nJV],">
+                        <field name="VAR" id="?gycWC@;g:+P*Nx:3/A," variabletype="">Период SMA</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="AT">
+                  <block type="variables_get" id="*a*!:K7r]aR4Q[lH^OY3">
+                    <field name="VAR" id="`W6D^K0Y6vr[@*+Q%7{:" variabletype="">Период угла</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="bx*/z6w:AtO%pd,OERq}">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="5t;(IKliOov2,pNqITD4">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="?^MQoi|,J4-YKB`z-I1k">
+                    <field name="VAR" id="IS^PHh;6r)zav]#0MyT;" variabletype="">угол</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="$F23+swjwLnL-Pqz:6d8">
+                    <field name="NUM">-1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="@48_W^{%tW;mTZ?kwUQL">
+                <field name="VAR" id="_/hUFcf;?io`JwXDw8hj" variabletype="">тр_н</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="5(iN.#o7cf=!k#LMdKG]">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="variables_set" id="T_{+Rek:#M+FtuI4RxW(">
+                <field name="VAR" id="_/hUFcf;?io`JwXDw8hj" variabletype="">тр_н</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="|seEg$|91X}hGc)X.2v7">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="variables_get" id="bBkr-;s:a!+{VBDQ18W]">
+        <field name="VAR" id="_/hUFcf;?io`JwXDw8hj" variabletype="">тр_н</field>
+      </block>
+    </value>
+  </block>
+</xml>
